@@ -1,0 +1,125 @@
+1. How to compare two JSON have the same properties without order? a. let obj 1= {name: "person 1", age: 5} b. let obj 2 = {age : 5, name : "person 1"} 
+========================================================================================================================================================
+
+function compareJson(jsonStr1, jsonStr2) {
+  // Parse JSON strings into objects
+  const obj1 = JSON.parse(jsonStr1);
+  const obj2 = JSON.parse(jsonStr2);
+
+  // Convert objects to sorted JSON strings for comparison
+  const sortedJson1 = JSON.stringify(obj1, Object.keys(obj1).sort());
+  const sortedJson2 = JSON.stringify(obj2, Object.keys(obj2).sort());
+
+  // Compare the sorted JSON strings
+  return sortedJson1 === sortedJson2;
+}
+
+2. Use the rest countries API and display all the country flags in the console
+========================================================================================================================================================
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // XHR Object
+        
+        // Use XMLHttpRequest (XHR) objects to interact with servers.
+        var request=new XMLHttpRequest()
+        console.log(request)// object
+        //open the connection
+        //url
+        //method
+        request.open("GET","https://restcountries.com/v2/all")
+        // new keyword object
+
+        //sending a connection
+        request.send()
+        console.log(request)
+        //JSON string => server response
+        // request.response
+
+        // 
+
+        //response => page is loaded that tym it should connect to server and give the data
+
+        // anonymous function
+     
+        request.onload=function(){
+            // console.log(request.response)
+            var data=JSON.parse(request.response)
+            console.log(data)
+       
+
+            for(var i=0;i<data.length;i++){
+                console.log(data[i].flag)
+            }
+           
+        }
+
+       
+    </script>
+</body>
+</html>
+
+3. Name, Region, sub region and population
+========================================================================================================================================================
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // XHR Object
+        
+        // Use XMLHttpRequest (XHR) objects to interact with servers.
+        var request=new XMLHttpRequest()
+        console.log(request)// object
+        //open the connection
+        //url
+        //method
+        request.open("GET","https://restcountries.com/v2/all")
+        // new keyword object
+
+        //sending a connection
+        request.send()
+        console.log(request)
+        //JSON string => server response
+        // request.response
+
+        // 
+
+        //response => page is loaded that tym it should connect to server and give the data
+
+        // anonymous function
+     
+        request.onload=function(){
+            // console.log(request.response)
+            var data=JSON.parse(request.response)
+            console.log(data)
+       
+
+            for(var i=0;i<data.length;i++){
+                console.log(data[i].name)
+		console.log(data[i].region)
+                console.log(data[i].subregion)
+                console.log(data[i].population)
+            }
+           
+        }
+
+       
+    </script>
+</body>
+</html>
+
+
